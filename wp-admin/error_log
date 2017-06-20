@@ -1,0 +1,16 @@
+[24-Mar-2017 16:21:28 UTC] WordPress database error Unknown column 'kdemo_' in 'field list' for query SELECT kdemo_
+[24-Mar-2017 21:38:51 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'disable_emojicons_tinymce' not found or invalid function name in /home/kmaserv/wptest/wp-includes/class-wp-hook.php on line 298
+[24-Mar-2017 21:38:51 UTC] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 437
+[24-Mar-2017 21:38:51 UTC] PHP Warning:  array_search() expects parameter 2 to be array, null given in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 439
+[24-Mar-2017 21:38:51 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 560
+[24-Mar-2017 21:38:51 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 797
+[24-Mar-2017 21:38:51 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 1208
+[24-Mar-2017 21:38:51 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 1317
+[24-Mar-2017 21:39:06 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'disable_emojicons_tinymce' not found or invalid function name in /home/kmaserv/wptest/wp-includes/class-wp-hook.php on line 298
+[24-Mar-2017 21:39:06 UTC] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 437
+[24-Mar-2017 21:39:06 UTC] PHP Warning:  array_search() expects parameter 2 to be array, null given in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 439
+[24-Mar-2017 21:39:06 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 560
+[24-Mar-2017 21:39:06 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 797
+[24-Mar-2017 21:39:06 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 1208
+[24-Mar-2017 21:39:06 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/kmaserv/wptest/wp-includes/class-wp-editor.php on line 1317
+[25-Mar-2017 03:22:13 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kmaserv/wptest/wp-content/themes/kdemo/functions.php:165) in /home/kmaserv/wptest/wp-includes/pluggable.php on line 1179

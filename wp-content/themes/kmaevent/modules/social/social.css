@@ -1,0 +1,38 @@
+.social svg {
+    height: 28px;
+    display: inline-block;
+    margin: .25rem .25rem .1rem;
+}
+.social {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin-bottom: -3px;
+    padding: .25rem;
+}
+.social a {
+    font-size: 0;
+    line-height: 0;
+}
+
+#top-top .social svg {
+    height: 28px;
+    display: inline-block;
+    margin: .25rem;
+}
+#top .social svg {
+    height: 24px;
+    display: inline-block;
+    margin: 0 .2rem;
+}
+
+.social svg .cls-2 {
+    fill: #0391A0;
+}
+
+#top .social svg .cls-2 {
+    fill: #F98B5A;
+}
+
+
+
