@@ -36,7 +36,9 @@ class Bands {
 			array(
 				'Photo'         => 'image',
 				'Email'         => 'text',
-				'Website'       => 'text'
+				'Website'       => 'text',
+				'Day'           => 'text',
+				'Time'          => 'text',
 			)
 		);
 
@@ -58,6 +60,8 @@ class Bands {
 				'HTML'          => 'wysiwyg'
 			)
 		);
+
+		$bands->add_taxonomy( 'Category' );
 
 	}
 
@@ -87,18 +91,34 @@ class Bands {
 	}
 
 	/**
+	 * @param $sort
+	 * @param $sortby
 	 * @return $bandArray
 	 */
-	public function getBands(){
+	public function getBands($sort = 'ASC', $sortby = 'menu_order', $taxonomy = ''){
 
-		$allBands  = get_posts( array(
+		$request = array(
 			'post_type'         => 'band',
 			'posts_per_page'	=> -1,
-			'orderby'			=> 'menu_order',
-			'order'             => 'ASC',
+			'orderby'			=> $sortby,
+			'order'             => $sort,
 			'offset'			=> 0,
 			'post_status'		=> 'publish',
-		) );
+		);
+
+		if($taxonomy!= ''){
+			$categoryArray = array(
+				array(
+					'taxonomy' => 'category',
+					'field' => 'slug',
+					'terms' => $taxonomy,
+					'include_children' => false,
+				),
+			);
+			$request['tax_query'] = $categoryArray;
+		}
+
+		$allBands  = get_posts($request);
 
 		$bandArray = array();
 		foreach ( $allBands as $band ){
@@ -111,6 +131,8 @@ class Bands {
 				'slug'          => (isset($band->post_name)             ? $band->post_name : null),
 				'photo'         => (isset($band->band_info_photo)       ? $band->band_info_photo : null),
 				'biography'     => (isset($band->description_html)      ? $band->description_html : null),
+				'day'           => (isset($band->band_info_day)         ? $band->band_info_day : null),
+				'time'          => (isset($band->band_info_time)         ? $band->band_info_time : null),
 				'link'          => get_permalink($band->ID),
 				'social'        => array(
 					'facebook'      => (isset($band->social_media_info_facebook)  ? $band->social_media_info_facebook : null),
@@ -154,6 +176,8 @@ class Bands {
 				'slug'          => (isset($band->post_name)             ? $band->post_name : null),
 				'photo'         => (isset($band->band_info_photo)       ? $band->band_info_photo : null),
 				'biography'     => (isset($band->description_html)      ? $band->description_html : null),
+				'day'           => (isset($band->band_info_day)         ? $band->band_info_day : null),
+				'time'          => (isset($band->band_info_time)         ? $band->band_info_time : null),
 				'link'          => get_permalink($band->ID),
 				'social'        => array(
 					'facebook'      => (isset($band->social_media_info_facebook)  ? $band->social_media_info_facebook : null),
@@ -168,6 +192,49 @@ class Bands {
 		}
 		
 		return $bandArray[0];
+	}
+
+	public function getBandsShortcode($atts, $content = null){
+
+		$a = shortcode_atts( array(
+			'category'  => '',
+			'sort'      => '',
+			'sortby'    => '',
+			'class'     => '',
+		), $atts );
+
+		$bandArray = $this->getBands($a['sort'],$a['sortby'],$a['category']);
+
+		$output = '<div class="row band-grid '.$a['category'].'" >';
+		foreach($bandArray as $band){
+			//echo '<pre>',print_r($band),'</pre>';
+			$output .= '<div class="band-item '.$a['class'].'" >';
+			$output .=      '<div class="card">';
+			$output .=          '<div class="card-title">';
+			$output .=      		'<p>'.$band['day'].' '.$band['time'].'</p>';
+			$output .=          '</div>';
+			$output .=          '<div class="card-image">';
+			$output .=              '<a href="'.$band['website'].'" target="_blank" ><img class="img-fluid" src="'.$band['photo'].'" alt="'.$band['name'].'"></a>';
+			$output .=          '</div>';
+			$output .=          '<div class="card-block">';
+			$output .=              '<p>'.$band['name'].'</p>';
+			$output .=          '</div>';
+			$output .=          '<div class="card-action">';
+			$output .=              '<a href="'.$band['website'].'" target="_blank" >About the artist</a>';
+			$output .=          '</div>';
+			$output .=      '</div>';
+			$output .= '</div>';
+		}
+		$output .= '</div>';
+
+		return $output;
+
+	}
+
+	public function registerShortcode(){
+
+		add_shortcode( 'getbands', array( $this, 'getBandsShortcode') );
+
 	}
 	
 	

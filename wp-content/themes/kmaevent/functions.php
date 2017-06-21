@@ -63,10 +63,36 @@ function kmaevent_setup() {
 	$bands = new Bands();
 	$bands->createPostType();
 	$bands->createAdminColumns();
+	$bands->registerShortcode();
 
 	$lodging = new Lodging();
 	$lodging->createPostType();
 	$lodging->createAdminColumns();
+
+	if ( isset( $_GET['post'] ) ) {
+		$post_id = intval( $_GET['post'] );
+	} elseif (isset( $_POST['post_ID'] ) ) {
+		$post_id = intval( $_POST['post_ID'] );
+	} else {
+		$post_id = 0;
+	}
+	if( is_admin() && $post_id == 8){
+
+		$page->add_meta_box(
+			'Kids Zone',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
+		$page->add_meta_box(
+			'Vendors',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
+	}
 
 }
 endif;
