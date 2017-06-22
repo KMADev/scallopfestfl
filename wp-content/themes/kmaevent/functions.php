@@ -146,6 +146,7 @@ if ( ! function_exists( 'kmaevent_inline' ) ) :
             <?php echo file_get_contents('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css' ); ?>
         </style>
         <style type="text/css">
+            @import url('https://fonts.googleapis.com/css?family=Kelly+Slab|Rubik:400,400i,700,700i');
             <?php
 
             if (file_exists(wp_normalize_path(get_template_directory() . '/modules/social/social.css'))){

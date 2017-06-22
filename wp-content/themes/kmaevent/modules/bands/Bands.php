@@ -26,8 +26,8 @@ class Bands {
 				'menu_icon'          => 'dashicons-format-audio',
 				'has_archive'        => false,
 				'menu_position'      => null,
-				'public'             => false,
-				'publicly_queryable' => false,
+				'public'             => true,
+				'publicly_queryable' => true,
 			)
 		);
 
@@ -130,9 +130,9 @@ class Bands {
 				'website'       => (isset($band->band_info_website)     ? $band->band_info_website : null),
 				'slug'          => (isset($band->post_name)             ? $band->post_name : null),
 				'photo'         => (isset($band->band_info_photo)       ? $band->band_info_photo : null),
-				'biography'     => (isset($band->description_html)      ? $band->description_html : null),
+				'biography'     => (isset($band->band_biography_html)   ? $band->band_biography_html : null),
 				'day'           => (isset($band->band_info_day)         ? $band->band_info_day : null),
-				'time'          => (isset($band->band_info_time)         ? $band->band_info_time : null),
+				'time'          => (isset($band->band_info_time)        ? $band->band_info_time : null),
 				'link'          => get_permalink($band->ID),
 				'social'        => array(
 					'facebook'      => (isset($band->social_media_info_facebook)  ? $band->social_media_info_facebook : null),
@@ -140,7 +140,7 @@ class Bands {
 					'linkedin'      => (isset($band->social_media_info_linkedin)  ? $band->social_media_info_linkedin : null),
 					'instagram'     => (isset($band->social_media_info_instagram) ? $band->social_media_info_instagram : null),
 					'youtube'       => (isset($band->social_media_info_youtube)   ? $band->social_media_info_youtube : null),
-					'google_plus'   => (isset($band->social_media_info_google)    ? $band->social_media_info_google : null),
+					'googleplus'   => (isset($band->social_media_info_google)    ? $band->social_media_info_google : null),
 				)
 			));
 			
@@ -175,9 +175,9 @@ class Bands {
 				'website'       => (isset($band->band_info_website)     ? $band->band_info_website : null),
 				'slug'          => (isset($band->post_name)             ? $band->post_name : null),
 				'photo'         => (isset($band->band_info_photo)       ? $band->band_info_photo : null),
-				'biography'     => (isset($band->description_html)      ? $band->description_html : null),
+				'biography'     => (isset($band->band_biography_html)   ? $band->band_biography_html : null),
 				'day'           => (isset($band->band_info_day)         ? $band->band_info_day : null),
-				'time'          => (isset($band->band_info_time)         ? $band->band_info_time : null),
+				'time'          => (isset($band->band_info_time)        ? $band->band_info_time : null),
 				'link'          => get_permalink($band->ID),
 				'social'        => array(
 					'facebook'      => (isset($band->social_media_info_facebook)  ? $band->social_media_info_facebook : null),
@@ -185,7 +185,7 @@ class Bands {
 					'linkedin'      => (isset($band->social_media_info_linkedin)  ? $band->social_media_info_linkedin : null),
 					'instagram'     => (isset($band->social_media_info_instagram) ? $band->social_media_info_instagram : null),
 					'youtube'       => (isset($band->social_media_info_youtube)   ? $band->social_media_info_youtube : null),
-					'google_plus'   => (isset($band->social_media_info_google)    ? $band->social_media_info_google : null),
+					'googleplus'   => (isset($band->social_media_info_google)    ? $band->social_media_info_google : null),
 				)
 			));
 			
@@ -211,16 +211,18 @@ class Bands {
 			$output .= '<div class="band-item '.$a['class'].'" >';
 			$output .=      '<div class="card">';
 			$output .=          '<div class="card-title">';
-			$output .=      		'<p>'.$band['day'].' '.$band['time'].'</p>';
+			$output .=      		'<p><span class="date">'.$band['day'].'</span><span class="time">'.$band['time'].'</p>';
 			$output .=          '</div>';
 			$output .=          '<div class="card-image">';
-			$output .=              '<a href="'.$band['website'].'" target="_blank" ><img class="img-fluid" src="'.$band['photo'].'" alt="'.$band['name'].'"></a>';
+			$output .=              '<a href="'.$band['link'].'" target="_blank" ><img class="img-fluid" src="'.$band['photo'].'" alt="'.$band['name'].'"></a>';
 			$output .=          '</div>';
-			$output .=          '<div class="card-block">';
-			$output .=              '<p>'.$band['name'].'</p>';
-			$output .=          '</div>';
-			$output .=          '<div class="card-action">';
-			$output .=              '<a href="'.$band['website'].'" target="_blank" >About the artist</a>';
+			$output .=          '<div class="card-content">';
+			$output .=              '<div class="card-block">';
+			$output .=                  '<p>'.$band['name'].'</p>';
+			$output .=              '</div>';
+			$output .=              '<div class="card-action my-auto">';
+			$output .=                  '<a href="'.$band['link'].'" target="_blank" >About the artist</a>';
+			$output .=              '</div>';
 			$output .=          '</div>';
 			$output .=      '</div>';
 			$output .= '</div>';
@@ -236,6 +238,26 @@ class Bands {
 		add_shortcode( 'getbands', array( $this, 'getBandsShortcode') );
 
 	}
-	
-	
+
+	/**
+	 * @param string $file
+	 * @return string
+	 */
+	public function getSvg($file = '',$embed = false){
+		if ($file != '') {
+
+			$activeTemplateDir     = get_template_directory() . '/modules/social/icons/svg/circle/';
+			$templatefileRequested = $file . '.svg';
+
+			if($embed){
+				$iconData = file_get_contents(wp_normalize_path( $activeTemplateDir . $templatefileRequested));
+				return $iconData;
+			}
+
+			return $activeTemplateDir . $templatefileRequested;
+
+		}
+
+	}
+
 }

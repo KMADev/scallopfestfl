@@ -10,6 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 	<header class="entry-header">
 		<?php
 		if ( is_single() ) :
@@ -34,14 +35,11 @@
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			) );
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kmaevent' ),
-				'after'  => '</div>',
-			) );
+//			wp_link_pages( array(
+//				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kmaevent' ),
+//				'after'  => '</div>',
+//			) );
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php kmaevent_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

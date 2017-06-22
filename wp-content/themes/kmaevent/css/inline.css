@@ -6,7 +6,40 @@ html, body.full, body.full #page { height:100%; }
 .container-fluid.no-gutters {
     padding:0;
 }
+a { color: #00828e; }
+a:focus, a:hover {
+    color: #00828e;
+    text-decoration: underline;
+}
 
+.btn.btn-primary,
+.btn-primary.active, .btn-primary:active,
+.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #0391A0;
+    border-color: #0391A0;
+}
+
+.btn.btn-primary:hover {
+    color: #fff;
+    background-color: #00828e;
+    border-color: #00828e;
+}
+
+.btn.btn-info,
+.btn-info.active, .btn-info:active,
+.show>.btn-info.dropdown-toggle {
+    color: #fff;
+    background-color: #F98B5A;
+    background-image: none;
+    border-color: #F98B5A;
+}
+
+.btn.btn-info:hover {
+    color: #fff;
+    background-color: #e2703f;
+    border-color: #e2703f;
+}
 
 /*.home #top, .home #mast { max-height: 800px; }*/
 #bot-bot {
@@ -297,6 +330,7 @@ ul#mini-menu li.menu-item a.nav-link {
 .blue-section .entry-content h2 {
     text-transform: uppercase;
     font-size: 1.8em;
+    color:#FFF;
 }
 
 .orange-section .entry-content p,
@@ -315,7 +349,7 @@ ul#mini-menu li.menu-item a.nav-link {
 
 .orange-section .entry-content hr,
 .blue-section .entry-content hr,
-.black-texturee .entry-content hr {
+.black-texture .entry-content hr {
     background-color: #FFF;
 }
 
@@ -674,7 +708,6 @@ header.entry-header h1 {
 
 /* Cards */
 .card {
-    border:none;
     border-radius: 0;
     margin-bottom:2rem;
 }
@@ -710,4 +743,95 @@ header.entry-header h1 {
 .kids-section,
 .vendors-section {
     padding:2rem 0
+}
+
+.bands-section .card {
+    background-color: #2d2d2d;
+    border:none;
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+}
+
+.bands-section .card .card-block {
+    min-height: auto;
+}
+
+.bands-section .card-block p {
+    font-family: 'Kelly Slab',sans-serif;
+    color: #FFF;
+    font-size: 2em;
+    margin: 0;
+    padding:0;
+}
+
+.bands-section .artist .card-block p {
+    font-family: 'Kelly Slab',sans-serif;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.bands-section .headliner .card-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.bands-section .headliner .card-block {
+    width: 75%;
+}
+.bands-section .headliner .card-action {
+    width: 25%;
+    /*background-color: #F98B5A;*/
+}
+
+.bands-section .card-action {
+    /*background-color: #F98B5A;*/
+}
+.card-action a {
+    display: block;
+    color:#F98B5A;
+    text-transform: uppercase;
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+}
+.card-title span.time {
+    display: inline-block;
+    font-weight: 100;
+    font-size: .9em;
+    padding-left: 1rem;
+}
+
+.bands-section .artist .card-block {
+    padding-bottom: 0;
+}
+
+article.post-8 a {
+    background-color: #F98B5A;
+    color:#FFF;
+    text-transform: uppercase;
+    display: inline-block;
+    padding:.25rem .5rem;
+    margin:.25rem 1rem 2rem;
+}
+
+.type-band .social {
+    display: block;
+    padding: 1rem 0;
+}
+
+.type-band .social img {
+    height: 43px;
+    margin: .25rem;
+}
+
+.type-band .contact {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.type-band h3 span.time {
+    font-weight: 200;
+    font-size: .8em;
+    margin-bottom: 1rem;
+    display: inline-block;
 }

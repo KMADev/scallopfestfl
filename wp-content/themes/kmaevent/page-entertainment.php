@@ -33,8 +33,9 @@ get_header();
 
         <div class="bands-section">
             <div class="container">
-            <?php echo do_shortcode('[getbands category="headliner" class="col-md-6"]'); ?>
-            <?php echo do_shortcode('[getbands category="artist" class="col-sm-6 col-md-3"]'); ?>
+                <a class="pad-anchor" id="music"></a>
+                <?php echo do_shortcode('[getbands category="headliner" class="col-md-6"]'); ?>
+                <?php echo do_shortcode('[getbands category="artist" class="col-sm-6 col-md-3"]'); ?>
             </div>
         </div>
         </div>
@@ -42,15 +43,19 @@ get_header();
             <div class="kids-section">
                 <a class="pad-anchor" id="kidszone"></a>
                 <div class="container">
-                    <?php echo $post->kids_zone_html; ?>
+                    <div class="entry-content">
+                        <?php echo apply_filters('the_content', $post->kids_zone_html); ?>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="orange-section">
             <div class="vendors-section">
-                <a class="pad-anchor" id="kidszone"></a>
+                <a class="pad-anchor" id="vendors"></a>
                 <div class="container">
-                    <?php echo $post->vendors_html; ?>
+                    <div class="entry-content">
+	                    <?php echo apply_filters('the_content', $post->vendors_html); ?>
+                    </div>
                 </div>
             </div>
         </div>
