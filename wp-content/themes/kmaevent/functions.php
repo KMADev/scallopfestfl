@@ -20,68 +20,6 @@ if ( ! function_exists( 'kmaevent_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 
-	function kmaevent_setup() {
-
-		load_theme_textdomain( 'kmaevent', get_template_directory() . '/languages' );
-		add_theme_support( 'automatic-feed-links' );
-		add_theme_support( 'title-tag' );
-		add_theme_support( 'post-thumbnails' );
-
-		register_nav_menus( array(
-			'mobile-menu'    => esc_html__( 'Mobile Menu', 'kmaevent' ),
-			'mini-top-right' => esc_html__( 'Mini Menu Top Right', 'kmaevent' ),
-			'top-left'       => esc_html__( 'Top Left', 'kmaevent' ),
-			'top-right'      => esc_html__( 'Top Right', 'kmaevent' )
-		) );
-
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption'
-		) );
-
-		require( 'inc/bootstrap-wp-navwalker.php' );
-		require( 'inc/cpt.php' );
-		require( 'inc/editor.php' );
-		require( 'inc/minifier.php' );
-
-		require( 'modules/social/sociallinks.php' );
-		require( 'modules/slider/slider.php' );
-		require( 'modules/bands/Bands.php' );
-		require( 'modules/lodging/Lodging.php' );
-
-		//add meta boxes to pages
-		$page = new Custom_Post_Type( 'Page' );
-		$page->add_meta_box(
-			'Page Information',
-			array(
-				'Headline' => 'text'
-			)
-		);
-
-		$sponsor = new Custom_Post_Type( 'Sponsor', ['supports' => 'title'] );
-		$sponsor->add_meta_box(
-			'Sponsor Information',
-			array(
-				'Logo'            => 'image',
-				'Company Website' => 'text'
-			)
-		);
-
-		$sponsor->add_taxonomy('Sponsorship Level');
-
-
-		$bands = new Bands();
-		$bands->createPostType();
-		$bands->createAdminColumns();
-
-		$lodging = new Lodging();
-		$lodging->createPostType();
-		$lodging->createAdminColumns();
-
-	}
 function kmaevent_setup() {
 
 	load_theme_textdomain( 'kmaevent', get_template_directory() . '/languages' );
@@ -131,6 +69,18 @@ function kmaevent_setup() {
 	$lodging = new Lodging();
 	$lodging->createPostType();
 	$lodging->createAdminColumns();
+
+	$sponsor = new Custom_Post_Type( 'Sponsor', ['supports' => 'title', 'menu_icon' => 'dashicons-awards'] );
+	$sponsor->add_meta_box(
+		'Sponsor Information',
+		array(
+			'Logo'            => 'image',
+			'Company Website' => 'text'
+		)
+	);
+
+	$sponsor->add_taxonomy('Sponsorship Level');
+
 
 	if ( isset( $_GET['post'] ) ) {
 		$post_id = intval( $_GET['post'] );
