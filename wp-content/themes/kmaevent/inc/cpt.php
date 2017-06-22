@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; //To protect from absolute linkage
 
 class Custom_Post_Type {
-	
+
     public $post_type_name;
     public $post_type_args;
     public $post_type_labels;
@@ -13,7 +13,7 @@ class Custom_Post_Type {
     public $taxonomies;
 
     public function __construct( $name, $args = array(), $labels = array() ){
-		
+
         // Set some important variables
 		$this->post_type_name	= strtolower( str_replace( ' ', '_', $name ) );
 		$this->post_type_args 	= $args;
@@ -22,9 +22,9 @@ class Custom_Post_Type {
 		// Add action to register the post type, if the post type does not already exist
 		if( ! post_type_exists( $this->post_type_name ) ){
 			add_action( 'init', array( &$this, 'register_post_type' ) );
-			
+
 		}
-		
+
 		// Populate the taxonomy columns with the posts terms.
 			$this->add_action( 'manage_' . $this->post_type_name . '_posts_custom_column', array( &$this, 'populate_admin_columns' ), 10, 2 );
 			// Add filter select option to admin edit.
@@ -32,9 +32,9 @@ class Custom_Post_Type {
 
 		// Listen for the save post hook
 		$this->save();
-		
+
     }
-	
+
 	/**
      * Get
      *
@@ -53,7 +53,7 @@ class Custom_Post_Type {
             return false;
         }
     }
-	
+
     /**
      * Set
      *
@@ -80,7 +80,7 @@ class Custom_Post_Type {
             $this->$var = $value;
         }
     }
-	
+
     /**
      * Add Action
      *
@@ -95,7 +95,7 @@ class Custom_Post_Type {
         // Pass variables into WordPress add_action function
         add_action( $action, $function, $priority, $accepted_args );
     }
-	
+
     /**
      * Add Filter
      *
@@ -112,10 +112,10 @@ class Custom_Post_Type {
         // Pass variables into Wordpress add_action function
         add_filter( $action, $function, $priority, $accepted_args );
     }
-	
+
 	/* Method which registers the post type */
     public function register_post_type(){
-		
+
          //Capitilize the words and make it plural
 		$name       = ucwords( str_replace( '_', ' ', $this->post_type_name ) );
 		$plural     = $name . 's';
@@ -135,7 +135,7 @@ class Custom_Post_Type {
 				'view_item'             => __( 'View ' . $name ),
 				'search_items'          => __( 'Search ' . $plural ),
 				'not_found'             => __( 'No ' . strtolower( $plural ) . ' found'),
-				'not_found_in_trash'    => __( 'No ' . strtolower( $plural ) . ' found in Trash'), 
+				'not_found_in_trash'    => __( 'No ' . strtolower( $plural ) . ' found in Trash'),
 				'parent_item_colon'     => '',
 				'menu_name'             => $plural
 			),
@@ -167,7 +167,7 @@ class Custom_Post_Type {
 		// Register the post type
 		register_post_type( $this->post_type_name, $args );
     }
-     
+
     /* Method to attach the taxonomy to the post type */
     public function add_taxonomy( $name, $args = array(), $labels = array() ){
     	if( ! empty( $name ) ){
@@ -181,7 +181,7 @@ class Custom_Post_Type {
 
 			if( ! taxonomy_exists( $taxonomy_name ) ){
 				/* Create taxonomy and attach it to the object type (post type) */
-				
+
 				//Capitilize the words and make it plural
 				$name       = ucwords( str_replace( '_', ' ', $name ) );
 				$plural     = $name . 's';
@@ -221,8 +221,8 @@ class Custom_Post_Type {
 						'show_ui'               => true,
 						'show_in_nav_menus'     => true,
 						'_builtin'              => false,
-						'rewrite'            => array( 
-							'slug' 			=> 'reviews',   		//string Customize the permalink structure slug. Defaults to the $post_type value. Should be translatable.
+						'rewrite'            => array(
+							'slug' 			=> '',   		//string Customize the permalink structure slug. Defaults to the $post_type value. Should be translatable.
 							'with_front' 	=> false, 				//bool Should the permalink structure be prepended with the front base. <br>
 																	//(example: if your permalink structure is /blog/, then your links will be: false-> /news/, true->/blog/news/). Defaults to true
 							'feeds' 		=> true, 				//bool Should a feed permalink structure be built for this post type. Defaults to has_archive value
@@ -244,7 +244,7 @@ class Custom_Post_Type {
 				);
 			}else{
 				/* The taxonomy already exists. We are going to attach the existing taxonomy to the object type (post type) */
-				
+
 				add_action( 'init',
 					function() use( $taxonomy_name, $post_type_name ){
 						register_taxonomy_for_object_type( $taxonomy_name, $post_type_name );
@@ -271,7 +271,7 @@ class Custom_Post_Type {
 			$custom_fields[$title] = $fields;
 
 			add_action( 'admin_init',
-					   
+
 				function() use( $box_id, $box_title, $post_type_name, $box_context, $box_priority, $fields ){  //(isset($filters) ? $filters : null)
                     add_meta_box(
 						$box_id,
@@ -431,7 +431,7 @@ class Custom_Post_Type {
 			);
 		}
     }
-	
+
 	/**
      * Add admin columns
      *
@@ -685,7 +685,7 @@ class Custom_Post_Type {
         $columns = array_merge( $sortable_columns, $columns );
         return $columns;
     }
-     
+
     /* Listens for when the post type being saved */
     public function save(){
          // Need the post type name again
@@ -719,7 +719,7 @@ class Custom_Post_Type {
 			}
 		);
     }
-	
+
 	public static function beautify( $string ){
 		return ucwords( str_replace( '_', ' ', $string ) );
 	}
@@ -727,7 +727,7 @@ class Custom_Post_Type {
 	public static function uglify( $string ){
 		return strtolower( str_replace( ' ', '_', $string ) );
 	}
-	
+
 	public static function pluralize( $string ){
 		$last = $string[strlen( $string ) - 1];
 
