@@ -8,6 +8,7 @@ $DOMAIN_NAME = 'scallopfestfl.org';
 $yourname            = ( isset( $_GET['your_name'] ) ? $_GET['your_name'] : '' );
 $contactperson       = ( isset( $_GET['contact_person'] ) ? $_GET['contact_person'] : '' );
 $youremail           = ( isset( $_GET['your_email'] ) ? $_GET['your_email'] : '' );
+$category            = ( isset( $_GET['category'] ) ? $_GET['category'] : '' );
 $phone               = ( isset( $_GET['phone'] ) ? $_GET['phone'] : '' );
 $address             = ( isset( $_GET['address'] ) ? $_GET['address'] : '' );
 $address_2           = ( isset( $_GET['address_2'] ) ? $_GET['address_2'] : '' );
@@ -18,6 +19,7 @@ $passCheck           = false;
 $message             = '';
 $website             = ( isset( $_GET['website'] ) ? $_GET['website'] : '' );
 $describeBooth       = ( isset( $_GET['describe_booth'] ) ? $_GET['describe_booth'] : '' );
+$additionalFeet      = ( isset( $_GET['additional_feet'] ) ? $_GET['additional_feet'] : '' );
 $formID              = ( isset( $_POST['formID'] ) ? $_POST['formID'] : '' );
 $securityFlag        = ( isset( $_POST['secu'] ) ? $_POST['secu'] : '' );
 $formSubmitted       = ( $formID == 'volunteer' && $securityFlag == '' ? true : false );
@@ -26,17 +28,20 @@ $emailformattedbadly = false;
 if ( $formSubmitted ) { //FORM WAS SUBMITTED
 
 	//OVERRIDE DEFAULTS IF FORM POSTED
-	$yourname      = ( isset( $_POST['your_name'] ) ? $_POST['your_name'] : $yourname );
-	$contactperson = ( isset( $_POST['contact_person'] ) ? $_POST['contact_person'] : $contactperson );
-	$youremail     = ( isset( $_POST['your_email'] ) ? $_POST['your_email'] : $youremail );
-	$phone         = ( isset( $_POST['phone'] ) ? $_POST['phone'] : $phone );
-	$address       = ( isset( $_POST['address'] ) ? $_POST['address'] : $address );
-	$address_2     = ( isset( $_POST['address_2'] ) ? $_POST['address_2'] : $address_2 );
-	$city          = ( isset( $_POST['city'] ) ? $_POST['city'] : $city );
-	$state         = ( isset( $_POST['state'] ) ? $_POST['state'] : $state );
-	$zip           = ( isset( $_POST['zip'] ) ? $_POST['zip'] : $zip );
-	$message       = ( isset( $_POST['additional_info'] ) ? $_POST['additional_info'] : $message );
-	$website       = ( isset( $_POST['website'] ) ? $_POST['website'] : $message );
+	$yourname       = ( isset( $_POST['your_name'] ) ? $_POST['your_name'] : $yourname );
+	$contactperson  = ( isset( $_POST['contact_person'] ) ? $_POST['contact_person'] : $contactperson );
+	$youremail      = ( isset( $_POST['your_email'] ) ? $_POST['your_email'] : $youremail );
+	$phone          = ( isset( $_POST['phone'] ) ? $_POST['phone'] : $phone );
+	$address        = ( isset( $_POST['address'] ) ? $_POST['address'] : $address );
+	$address_2      = ( isset( $_POST['address_2'] ) ? $_POST['address_2'] : $address_2 );
+	$city           = ( isset( $_POST['city'] ) ? $_POST['city'] : $city );
+	$state          = ( isset( $_POST['state'] ) ? $_POST['state'] : $state );
+	$zip            = ( isset( $_POST['zip'] ) ? $_POST['zip'] : $zip );
+	$message        = ( isset( $_POST['additional_info'] ) ? $_POST['additional_info'] : $message );
+	$website        = ( isset( $_POST['website'] ) ? $_POST['website'] : $message );
+	$category       = ( isset( $_POST['category'] ) ? $_POST['category'] : $category );
+	$additionalFeet = ( isset( $_POST['additional_feet'] ) ? $_POST['additional_feet'] : $additionalFeet );
+	$describeBooth  = ( isset( $_POST['describe_booth'] ) ? $_POST['describe_booth'] : $describeBooth );
 
 	//BEGIN CHECKS
 	$passCheck = true;
@@ -338,19 +343,23 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
                 12 ft. frontage Arts and Crafts (110v - $135)
             </label>
             <label>
-                <input type="radio" name="category" value="12 ft. frontage Commercial Vendors-NO product sales (no power - $175)">
+                <input type="radio" name="category"
+                       value="12 ft. frontage Commercial Vendors-NO product sales (no power - $175)">
                 12 ft. frontage Commercial Vendors-NO product sales (no power - $175)
             </label>
             <label>
-                <input type="radio" name="category" value="12 ft. frontage Commercial Vendors-NO product sales (110v - $190)">
+                <input type="radio" name="category"
+                       value="12 ft. frontage Commercial Vendors-NO product sales (110v - $190)">
                 12 ft. frontage Commercial Vendors-NO product sales (110v - $190)
             </label>
             <label>
-                <input type="radio" name="category" value="12 ft. frontage Commercial Vendors-with product sales (no power - $355)">
+                <input type="radio" name="category"
+                       value="12 ft. frontage Commercial Vendors-with product sales (no power - $355)">
                 12 ft. frontage Commercial Vendors-with product sales (no power - $355)
             </label>
             <label>
-                <input type="radio" name="category" value="12 ft. frontage Commercial Vendors-with product sales (110v - $370)">
+                <input type="radio" name="category"
+                       value="12 ft. frontage Commercial Vendors-with product sales (110v - $370)">
                 12 ft. frontage Commercial Vendors-with product sales (110v - $370)
             </label>
             <label>
@@ -374,11 +383,13 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
                 16 ft. frontage Snack Vendors (110v - $290)
             </label>
             <label>
-                <input type="radio" name="category" value="12 ft. frontage Non-profit - Educational/Churches (no power - $60)">
+                <input type="radio" name="category"
+                       value="12 ft. frontage Non-profit - Educational/Churches (no power - $60)">
                 12 ft. frontage Non-profit - Educational/Churches (no power - $60)
             </label>
             <label>
-                <input type="radio" name="category" value="12 ft. frontage Non-profit - Educational/Churches (110v - $75)">
+                <input type="radio" name="category"
+                       value="12 ft. frontage Non-profit - Educational/Churches (110v - $75)">
                 12 ft. frontage Non-profit - Educational/Churches (110v - $75)
             </label>
             <label>
@@ -390,6 +401,15 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
                 12 ft. frontage Political (110v - $135)
             </label>
         </div>
+    </div>
+    <div class="row">
+        <p>For each additional foot - $26.75<br>
+            Enter number of additional frontage needed (above the standard 16 ft).</p>
+        <p>I need an additional
+            <input name="additional_feet" type="text" id="additional_feet"
+                   class="form-control col-1"
+                   value="<?php echo( ! $passCheck && $additionalFeet != '' ? $additionalFeet : '' ); ?>"
+                   placeholder="0"> feet.
     </div>
     <div class="row">
         <div class="col-12">
