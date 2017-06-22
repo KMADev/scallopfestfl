@@ -20,7 +20,8 @@ if ( ! function_exists( 'kmaevent_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 
-	function kmaevent_setup() {
+
+function kmaevent_setup() {
 
 	load_theme_textdomain( 'kmaevent', get_template_directory() . '/languages' );
 	add_theme_support( 'automatic-feed-links' );
@@ -81,6 +82,18 @@ if ( ! function_exists( 'kmaevent_setup' ) ) :
 	$lodging = new Lodging();
 	$lodging->createPostType();
 	$lodging->createAdminColumns();
+
+	$sponsor = new Custom_Post_Type( 'Sponsor', ['supports' => 'title', 'menu_icon' => 'dashicons-awards'] );
+	$sponsor->add_meta_box(
+		'Sponsor Information',
+		array(
+			'Logo'            => 'image',
+			'Company Website' => 'text'
+		)
+	);
+
+	$sponsor->add_taxonomy('Sponsorship Level');
+
 
 	if ( isset( $_GET['post'] ) ) {
 		$post_id = intval( $_GET['post'] );

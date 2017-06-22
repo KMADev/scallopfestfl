@@ -91,9 +91,11 @@ class Bands {
 	}
 
 	/**
-	 * @param $sort
-	 * @param $sortby
-	 * @return $bandArray
+	 * @param string $sort
+	 * @param string $sortby
+	 * @param string $taxonomy
+	 *
+	 * @return array $bandArray
 	 */
 	public function getBands($sort = 'ASC', $sortby = 'menu_order', $taxonomy = ''){
 
