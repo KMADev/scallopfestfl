@@ -81,7 +81,86 @@ if ( ! function_exists( 'kmaevent_setup' ) ) :
 		$lodging->createPostType();
 		$lodging->createAdminColumns();
 
+<<<<<<< HEAD
 	}
+=======
+function kmaevent_setup() {
+
+	load_theme_textdomain( 'kmaevent', get_template_directory() . '/languages' );
+	add_theme_support( 'automatic-feed-links' );
+	add_theme_support( 'title-tag' );
+	add_theme_support( 'post-thumbnails' );
+
+	register_nav_menus( array(
+		'mobile-menu'       => esc_html__( 'Mobile Menu', 'kmaevent' ),
+		'mini-top-right'    => esc_html__( 'Mini Menu Top Right', 'kmaevent' ),
+		'top-left'          => esc_html__( 'Top Left', 'kmaevent' ),
+		'top-right'         => esc_html__( 'Top Right', 'kmaevent' )
+	) );
+
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption'
+	) );
+
+    require('inc/bootstrap-wp-navwalker.php');
+    require('inc/cpt.php');
+    require('inc/editor.php');
+	require('inc/minifier.php');
+
+	require('modules/social/sociallinks.php');
+	require('modules/slider/slider.php');
+	require('modules/bands/Bands.php');
+	require('modules/lodging/Lodging.php');
+
+	//add meta boxes to pages
+	$page = new Custom_Post_Type('Page');
+	$page->add_meta_box(
+		'Page Information',
+		array(
+			'Headline' 			=> 'text'
+		)
+	);
+
+	$bands = new Bands();
+	$bands->createPostType();
+	$bands->createAdminColumns();
+	$bands->registerShortcode();
+
+	$lodging = new Lodging();
+	$lodging->createPostType();
+	$lodging->createAdminColumns();
+
+	if ( isset( $_GET['post'] ) ) {
+		$post_id = intval( $_GET['post'] );
+	} elseif (isset( $_POST['post_ID'] ) ) {
+		$post_id = intval( $_POST['post_ID'] );
+	} else {
+		$post_id = 0;
+	}
+	if( is_admin() && $post_id == 8){
+
+		$page->add_meta_box(
+			'Kids Zone',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
+		$page->add_meta_box(
+			'Vendors',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
+	}
+
+}
+>>>>>>> a959523b3432b8e43856799006a6cd066ded39c9
 endif;
 add_action( 'after_setup_theme', 'kmaevent_setup' );
 

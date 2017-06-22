@@ -276,16 +276,32 @@ ul#mini-menu li.menu-item a.nav-link {
 .support article {
     padding: 1.5rem 0;
 }
-.front-page h1 {
+
+.orange-section header.entry-header h1,
+.blue-section header.entry-header h1,
+.black-texture header.entry-header h1 {
     color:#FFF;
+}
+.front-page h1 {
     text-transform: uppercase;
     font-size: 2em;
 }
-.front-page .entry-content h2 {
+.orange-section .entry-content h2,
+.blue-section .entry-content h2,
+.black-texture .entry-content h2 {
     text-transform: uppercase;
     font-size: 1.8em;
 }
-.front-page .entry-content p {
+
+.orange-section .entry-content h2,
+.blue-section .entry-content h2 {
+    text-transform: uppercase;
+    font-size: 1.8em;
+}
+
+.orange-section .entry-content p,
+.blue-section .entry-content p,
+.black-texture .entry-content p {
     color:#FFF;
     text-align: left;
     font-size: 1.1em;
@@ -297,7 +313,9 @@ ul#mini-menu li.menu-item a.nav-link {
     margin: 2rem 12% 1.5rem;
 }
 
-.front-page .entry-content hr {
+.orange-section .entry-content hr,
+.blue-section .entry-content hr,
+.black-texturee .entry-content hr {
     background-color: #FFF;
 }
 
@@ -422,6 +440,14 @@ ul#mini-menu li.menu-item a.nav-link {
 .black-texture {
     background: url('/wp-content/themes/kmaevent/img/black-texture.jpg') center;
     background-size: cover;
+}
+
+.blue-section {
+    background-color: #0391A0;
+}
+
+.orange-section {
+    background-color: #F98B5A;
 }
 
 .feat-boxes .feat-box.ticket-info {
@@ -648,6 +674,7 @@ header.entry-header h1 {
 
 /* Cards */
 .card {
+    border:none;
     border-radius: 0;
     margin-bottom:2rem;
 }
@@ -678,4 +705,9 @@ header.entry-header h1 {
 
 .card .card-block {
     min-height: 9rem;
+}
+
+.kids-section,
+.vendors-section {
+    padding:2rem 0
 }
