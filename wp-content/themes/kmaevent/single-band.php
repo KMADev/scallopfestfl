@@ -18,7 +18,7 @@ get_header(); ?>
                         <div class="row justify-content-center">
 							<?php while ( have_posts() ) : the_post();
 
-								get_template_part( 'template-parts/content', get_post_format() );
+								get_template_part( 'template-parts/content', 'band' );
 
 							endwhile; // End of the loop. ?>
                         </div>

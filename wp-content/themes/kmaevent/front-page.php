@@ -80,7 +80,7 @@ get_header();
                             <div class="feat-box-roll-content">
                                 <h3><a class="feat-box-link" href="/entertainment/#music" >Music Lineup</a></h3>
                                 <hr>
-                                <h3><a class="feat-box-link" href="/entertainment/#kids" >Kids Zone</a></h3>
+                                <h3><a class="feat-box-link" href="/entertainment/#kidszone" >Kids Zone</a></h3>
                                 <hr>
                                 <h3><a class="feat-box-link" href="/entertainment/#vendors" >Vendors</a></h3>
                             </div>

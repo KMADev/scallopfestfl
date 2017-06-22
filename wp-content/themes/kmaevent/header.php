@@ -85,7 +85,7 @@
                     <span class="icon-bar"></span>
                 </span>
             </button>
-            <div class="social">
+            <div class="social my-auto">
                 <?php
     		    $socialLinks = getSocialLinks('svg','circle');
                 if(is_array($socialLinks)) {
