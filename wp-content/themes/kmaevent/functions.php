@@ -120,6 +120,28 @@ function kmaevent_setup() {
 
 	}
 
+	if( is_admin() && $post_id == 206){
+
+		$page->add_meta_box(
+			'Online Application',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
+	}
+
+	if( is_admin() && $post_id == 14){
+
+		$page->add_meta_box(
+			'Offline Application',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
+	}
+
 }
 endif;
 add_action( 'after_setup_theme', 'kmaevent_setup' );

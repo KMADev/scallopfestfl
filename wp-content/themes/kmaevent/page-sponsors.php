@@ -23,9 +23,27 @@ require( 'modules/sponsors/Sponsor.php' );
 
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main support" role="main">
-                        <?php
-                        get_template_part( 'template-parts/content', 'sponsors' );
-                        ?>
+                        <?php while ( have_posts() ) : the_post();
+                            $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
+                            ?>
+
+                            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                                <header class="entry-header">
+                                    <h1 class="entry-title"><?php echo $headline; ?></h1>
+                                </header><!-- .entry-header -->
+
+                                <div class="entry-content">
+                                    <hr>
+                                    <p>&nbsp;</p>
+                                    <?php the_content(); ?>
+                                    <p>&nbsp;</p>
+	                                <?php get_template_part( 'template-parts/content', 'sponsors' ); ?>
+
+                                </div><!-- .entry-content -->
+
+                            </article><!-- #post-## -->
+
+                        <?php endwhile; // End of the loop. ?>
                     </main><!-- #main -->
                 </div><!-- #primary -->
 

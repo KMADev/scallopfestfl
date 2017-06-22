@@ -36,10 +36,9 @@ get_header();
                                 <div class="entry-content">
                                     <hr>
                                     <p>&nbsp;</p>
-				                    <?php
-                                    the_content();
-				                    get_template_part( 'template-parts/form', 'volunteers' );
-				                    ?>
+				                    <?php the_content(); ?>
+                                    <p>&nbsp;</p>
+				                    <?php get_template_part( 'template-parts/form', 'volunteers' ); ?>
 
                                 </div><!-- .entry-content -->
 

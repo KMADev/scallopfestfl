@@ -43,7 +43,7 @@ get_header();
             <div class="kids-section">
                 <a class="pad-anchor" id="kidszone"></a>
                 <div class="container">
-                    <div class="entry-content">
+                    <div class="entry-content text-center">
                         <?php echo apply_filters('the_content', $post->kids_zone_html); ?>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ get_header();
             <div class="vendors-section">
                 <a class="pad-anchor" id="vendors"></a>
                 <div class="container">
-                    <div class="entry-content">
+                    <div class="entry-content text-center">
 	                    <?php echo apply_filters('the_content', $post->vendors_html); ?>
                     </div>
                 </div>

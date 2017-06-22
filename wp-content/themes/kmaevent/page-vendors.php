@@ -36,12 +36,22 @@ get_header();
                                 <div class="entry-content">
                                     <hr>
                                     <p>&nbsp;</p>
-				                    <?php
-                                    the_content();
-				                    get_template_part( 'template-parts/form', 'vendors' );
-				                    ?>
+	                                <?php the_content(); ?>
+                                    <p>&nbsp;</p>
+                                </div>
 
-                                </div><!-- .entry-content -->
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <div class="entry-content">
+	                                        <?php get_template_part( 'template-parts/form', 'vendors' ); ?>
+                                        </div><!-- .entry-content -->
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="entry-content offline-applications">
+	                                        <?php echo apply_filters('the_content', $post->offline_application_html); ?>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </article><!-- #post-## -->
                         </div>
