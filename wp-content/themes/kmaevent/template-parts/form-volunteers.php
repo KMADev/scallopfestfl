@@ -8,6 +8,11 @@ $DOMAIN_NAME = 'scallopfestfl.org';
 $yourname               = (isset($_GET['your_name']) ? $_GET['your_name'] : '');
 $youremail              = (isset($_GET['your_email']) ? $_GET['your_email'] : '');
 $phone                  = (isset($_GET['phone']) ? $_GET['phone'] : '');
+$address                = (isset($_GET['address']) ? $_GET['address'] : '');
+$address_2              = (isset($_GET['address_2']) ? $_GET['address_2'] : '');
+$city                   = (isset($_GET['city']) ? $_GET['city'] : '');
+$state                  = (isset($_GET['state']) ? $_GET['state'] : '');
+$zip                    = (isset($_GET['zip']) ? $_GET['zip'] : '');
 $emailformattedbadly    = FALSE;
 $passCheck              = FALSE;
 $message                = '';
@@ -22,8 +27,12 @@ if( $formSubmitted ){ //FORM WAS SUBMITTED
 	$yourname           = (isset($_POST['your_name']) ? $_POST['your_name'] : $yourname);
 	$youremail          = (isset($_POST['your_email']) ? $_POST['your_email'] : $youremail);
 	$phone              = (isset($_POST['phone']) ? $_POST['phone'] : $phone);
+	$address            = (isset($_POST['address']) ? $_POST['address'] : $address);
+	$address_2          = (isset($_POST['address_2']) ? $_POST['address_2'] : $address_2);
+	$city               = (isset($_POST['city']) ? $_POST['city'] : $city);
+	$state              = (isset($_POST['state']) ? $_POST['state'] : $state);
+	$zip                = (isset($_POST['zip']) ? $_POST['zip'] : $zip);
 	$message            = (isset($_POST['additional_info']) ? $_POST['additional_info'] : $message);
-
 
 	//BEGIN CHECKS
 	$passCheck = TRUE;
@@ -62,10 +71,11 @@ if( $formSubmitted ){ //FORM WAS SUBMITTED
 		'Name'              => $yourname,
 		'Email Address'     => $youremail,
 		'Phone Number'      => $phone,
-		'Additional Info'   => htmlentities(stripslashes($message)),
+		'Address'           => $address.' '.$address_2.'<br>'.$city.' '.$state.', '.$zip,
+		'Message'           => htmlentities(stripslashes($message)),
 	);
 
-	$successmessage     = '<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span><span class="sr-only">Success:</span> <strong>Your request has been received. Our staff will review your submission and get back with you soon.</strong>';
+	$successmessage     = '<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span><span class="sr-only">Success:</span> <strong>Your application has been received. Our staff will review your submission and get back with you soon.</strong>';
 	$errormessage       = '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span> Errors were found. Please correct the indicated fields below.';
 
 	$fontstyle          = 'font-family: sans-serif;';
@@ -165,50 +175,49 @@ if( $formSubmitted ){ //FORM WAS SUBMITTED
 <a id="vounteer-form" class="pad-anchor"></a>
 <form class="form leadform" enctype="multipart/form-data" method="post" action="#vounteer-form" >
 	<input type="hidden" name="formID" value="volunteer" >
-	<h3>Contact Information</h3>
-	<div class="row" style="width:100%">
+	<div class="row">
 		<div class="col-md-4">
 			<label for="your_name" class="sr-only">Name *</label>
-			<div class="input-group mb-2">
-				<input name="your_name" type="text" id="your_name" class="textbox form-control <?php echo ( $yourname && $formSubmitted ? 'has-error' : ''); ?>" value="<?php echo ($yourname != '' ? $yourname : ''); ?>" required placeholder="Name *">
+			<div class="input-group mb-2 <?php echo ( $yourname=='' && $formSubmitted ? 'has-danger' : ''); ?>">
+				<input name="your_name" type="text" id="your_name" class="textbox form-control <?php echo ( $yourname=='' && $formSubmitted ? 'form-control-danger' : ''); ?>" value="<?php echo (!$passCheck && $yourname != '' ? $yourname : ''); ?>" required placeholder="Name *">
 			</div>
 		</div>
 		<div class="col-md-4">
 			<label for="your_email" class="sr-only">Email Address *</label>
-			<div class="input-group mb-2">
-				<input name="your_email" type="text" id="your_email" class="textbox form-control <?php echo( $youremail=='' && $formSubmitted || $emailformattedbadly ? 'has-error' : ''); ?>" value="<?php echo (!$passCheck ? $youremail : ''); ?>" required placeholder="Email Address *">
+			<div class="input-group mb-2 <?php echo( $youremail=='' && $formSubmitted || $emailformattedbadly ? 'has-danger' : ''); ?>">
+				<input name="your_email" type="text" id="your_email" class="textbox form-control <?php echo( $youremail=='' && $formSubmitted || $emailformattedbadly ? 'form-control-danger' : ''); ?>" value="<?php echo (!$passCheck && $youremail != '' ? $youremail : ''); ?>" required placeholder="Email Address *">
 			</div>
 		</div>
 		<div class="col-md-4">
 			<label for="phone" class="sr-only">Phone Number *</label>
-			<div class="input-group mb-2">
-				<input name="phone" type="text" id="phone" class="textbox form-control <?php echo ( $phone && $formSubmitted ? 'has-error' : ''); ?>" value="<?php echo ($phone != '' ? $phone : ''); ?>" placeholder="Phone Number *">
+			<div class="input-group mb-2 <?php echo ( $phone=='' && $formSubmitted ? 'has-danger' : ''); ?>">
+				<input name="phone" type="text" id="phone" class="textbox form-control <?php echo ( $phone && $formSubmitted ? 'form-control-danger' : ''); ?>" value="<?php echo (!$passCheck && $phone != '' ? $phone : ''); ?>" placeholder="Phone Number *">
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-8">
-			<label for="address" class="sr-only">Listing Address *</label>
-			<div class="input-group mb-2">
-				<input name="address" type="text" id="address <?php echo ( $address && $formSubmitted ? 'has-error' : ''); ?>" value="<?php echo ($address != '' ? $address : ''); ?>" class="textbox form-control" required placeholder="Listing Address *">
+			<label for="address" class="sr-only">Address *</label>
+			<div class="input-group mb-2 <?php echo ( $address=='' && $formSubmitted ? 'has-danger' : ''); ?>">
+				<input name="address" type="text" id="address <?php echo ( $address && $formSubmitted ? 'form-control-danger' : ''); ?>" value="<?php echo (!$passCheck && $address != '' ? $address : ''); ?>" class="textbox form-control" required placeholder="Address *">
 			</div>
 		</div>
 		<div class="col-md-4">
 			<label for="address_2" class="sr-only">Apt/Suite *</label>
 			<div class="input-group mb-2">
-				<input name="address_2" type="text" id="address_2" class="textbox form-control" value="<?php echo ($address_2 != '' ? $address_2 : ''); ?>" placeholder="Apt/Suite">
+				<input name="address_2" type="text" id="address_2" class="textbox form-control" value="<?php echo (!$passCheck && $address_2 != '' ? $address_2 : ''); ?>" placeholder="Apt/Suite">
 			</div>
 		</div>
 		<div class="col-md-5">
 			<label for="city" class="sr-only">City *</label>
-			<div class="input-group mb-2">
-				<input name="city" type="text" id="city" class="textbox form-control <?php echo ( $city && $formSubmitted ? 'has-error' : ''); ?>" value="<?php echo ($city != '' ? $city : ''); ?>" required placeholder="City *">
+			<div class="input-group mb-2 <?php echo ( $city=='' && $formSubmitted ? 'has-danger' : ''); ?>">
+				<input name="city" type="text" id="city" class="textbox form-control <?php echo ( $city=='' && $formSubmitted ? 'form-control-danger' : ''); ?>" value="<?php echo (!$passCheck && $city != '' ? $city : ''); ?>" required placeholder="City *">
 			</div>
 		</div>
 		<div class="col-md-4">
 			<label for="state" class="sr-only">State *</label>
-			<div class="input-group mb-2">
-				<select class="form-control <?php echo ( $state=='' && $formSubmitted ? 'has-error' : ''); ?>" required name="state">
+			<div class="input-group mb-2 <?php echo ( $state=='' && $formSubmitted ? 'has-danger' : ''); ?>">
+				<select class="form-control <?php echo ( $state=='' && $formSubmitted ? 'form-control-danger' : ''); ?>" required name="state">
 					<option value="AL" <?php if($state == 'AL'){ echo 'selected'; } ?> >Alabama</option>
 					<option value="AK" <?php if($state == 'AK'){ echo 'selected'; } ?> >Alaska</option>
 					<option value="AZ" <?php if($state == 'AZ'){ echo 'selected'; } ?> >Arizona</option>
@@ -264,8 +273,8 @@ if( $formSubmitted ){ //FORM WAS SUBMITTED
 		</div>
 		<div class="col-md-3">
 			<label for="zip" class="sr-only">Zip *</label>
-			<div class="input-group mb-2">
-				<input name="zip" type="text" id="zip" class="textbox form-control <?php echo ( $zip && $formSubmitted ? 'has-error' : ''); ?>" value="<?php echo ($zip != '' ? $zip : ''); ?>" required placeholder="Zip *">
+			<div class="input-group mb-2 <?php echo ( $zip=='' && $formSubmitted ? 'has-danger' : ''); ?>">
+				<input name="zip" type="text" id="zip" class="textbox form-control <?php echo ( $zip=='' && $formSubmitted ? 'form-control-danger' : ''); ?>" value="<?php echo (!$passCheck && $zip != '' ? $zip : ''); ?>" required placeholder="Zip *">
 			</div>
 		</div>
 	</div>
@@ -273,7 +282,7 @@ if( $formSubmitted ){ //FORM WAS SUBMITTED
 		<div class="col-12">
 			<div class="form-group">
 				<label for="additional_info" class="sr-only">Message</label>
-				<textarea name="additional_info" rows="4" class="form-control" placeholder="Message" style="height: 130px;"><?php echo ($message != '' ? stripslashes($message) : ''); ?></textarea>
+				<textarea name="additional_info" rows="4" class="form-control" placeholder="Message" style="height: 130px;"><?php echo (!$passCheck && $message != '' ? stripslashes($message) : ''); ?></textarea>
 			</div>
 		</div>
 	</div>
