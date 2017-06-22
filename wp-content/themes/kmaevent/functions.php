@@ -81,9 +81,7 @@ if ( ! function_exists( 'kmaevent_setup' ) ) :
 		$lodging->createPostType();
 		$lodging->createAdminColumns();
 
-<<<<<<< HEAD
 	}
-=======
 function kmaevent_setup() {
 
 	load_theme_textdomain( 'kmaevent', get_template_directory() . '/languages' );
@@ -160,7 +158,6 @@ function kmaevent_setup() {
 	}
 
 }
->>>>>>> a959523b3432b8e43856799006a6cd066ded39c9
 endif;
 add_action( 'after_setup_theme', 'kmaevent_setup' );
 
