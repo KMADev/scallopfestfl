@@ -193,7 +193,7 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
 <form class="form leadform" enctype="multipart/form-data" method="post" action="#vounteer-form">
     <input type="hidden" name="formID" value="volunteer">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="your_name" class="sr-only">Business Name *</label>
             <div class="input-group mb-2 <?php echo( $yourname == '' && $formSubmitted ? 'has-danger' : '' ); ?>">
                 <input name="your_name" type="text" id="your_name"
@@ -202,7 +202,7 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
                        placeholder="Business Name *">
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="contact_person" class="sr-only">Contact Person *</label>
             <div class="input-group mb-2 <?php echo( $contactperson == '' && $formSubmitted ? 'has-danger' : '' ); ?>">
                 <input name="contact_person" type="text" id="contatct_person"
@@ -211,7 +211,7 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
                        placeholder="Contact Person*">
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="your_email" class="sr-only">Email Address *</label>
             <div class="input-group mb-2 <?php echo( $youremail == '' && $formSubmitted || $emailformattedbadly ? 'has-danger' : '' ); ?>">
                 <input name="your_email" type="text" id="your_email"
@@ -220,6 +220,25 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
                        placeholder="Email Address *">
             </div>
         </div>
+        <div class="col-md-6">
+            <label for="phone" class="sr-only">Phone Number *</label>
+            <div class="input-group mb-2 <?php echo( $phone == '' && $formSubmitted ? 'has-danger' : '' ); ?>">
+                <input name="phone" type="text" id="phone"
+                        class="textbox form-control <?php echo( $phone && $formSubmitted ? 'form-control-danger' : '' ); ?>"
+                        value="<?php echo( ! $passCheck && $phone != '' ? $phone : '' ); ?>"
+                        placeholder="Phone Number *">
+            </div>
+        </div>
+        <div class="col-12">
+            <label for="website" class="sr-only">Website</label>
+            <div class="input-group mb-2">
+                <input name="website" type="text" id="contatct_person"
+                        class="textbox form-control"
+                        value="<?php echo( ! $passCheck && $website != '' ? $website : '' ); ?>"
+                        placeholder="Website">
+            </div>
+        </div>
+
     </div>
     <div class="row">
         <div class="col-md-8">
@@ -267,40 +286,26 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <label for="website" class="sr-only">Website</label>
-            <div class="input-group mb-2">
-                <input name="website" type="text" id="contatct_person"
-                       class="textbox form-control"
-                       value="<?php echo( ! $passCheck && $website != '' ? $website : '' ); ?>"
-                       placeholder="Website">
-            </div>
-        </div>
-        <div class="col-md-3">
-            <label for="phone" class="sr-only">Phone Number *</label>
-            <div class="input-group mb-2 <?php echo( $phone == '' && $formSubmitted ? 'has-danger' : '' ); ?>">
-                <input name="phone" type="text" id="phone"
-                       class="textbox form-control <?php echo( $phone && $formSubmitted ? 'form-control-danger' : '' ); ?>"
-                       value="<?php echo( ! $passCheck && $phone != '' ? $phone : '' ); ?>"
-                       placeholder="Phone Number *">
-            </div>
-        </div>
-    </div>
-    <div class="radio">
-        <label for="booth_type" class="label">Booth Type <sup>*</sup>:</label>
-        <label>
-            <input type="radio" name="booth_type" id="booth_type_tent" value="Tent">
-            Tent
+<p>&nbsp;</p>
+    <div class="custom-controls-stacked">
+
+        <label for="booth_type" class="label"><strong>Booth Type<sup>*</sup></strong></label>
+        <label class="custom-control custom-radio">
+            <input name="booth_type" type="radio" value="Tent" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Tent</span>
         </label>
-        <label>
-            <input type="radio" name="booth_type" id="booth_type_trailer" value="Trailer">
-            Trailer
+        <label class="custom-control custom-radio">
+            <input name="booth_type" type="radio" value="Trailer" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Trailer</span>
         </label>
-        <label>
-            <input type="radio" name="booth_type" id="booth_type_other" value="Other">
-            Other
+        <label class="custom-control custom-radio">
+            <input name="booth_type" type="radio" value="Other" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Other</span>
         </label>
+
     </div>
     <div class="row">
         <div class="col-12">
@@ -331,92 +336,93 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
                 vendors; food vendors - 16 ft frontage. For each additional foot $26.75.</p>
         </div>
     </div>
-    <div class="row">
-        <div class="radio">
-            <label for="booth_type" class="label">Category *</label>
-            <label>
-                <input type="radio" name="category" value="12 ft. frontage Arts and Crafts (no power - $120)">
-                12 ft. frontage Arts and Crafts (no power - $120)
-            </label>
-            <label>
-                <input type="radio" name="category" value="12 ft. frontage Arts and Crafts (110v - $135)">
-                12 ft. frontage Arts and Crafts (110v - $135)
-            </label>
-            <label>
-                <input type="radio" name="category"
-                       value="12 ft. frontage Commercial Vendors-NO product sales (no power - $175)">
-                12 ft. frontage Commercial Vendors-NO product sales (no power - $175)
-            </label>
-            <label>
-                <input type="radio" name="category"
-                       value="12 ft. frontage Commercial Vendors-NO product sales (110v - $190)">
-                12 ft. frontage Commercial Vendors-NO product sales (110v - $190)
-            </label>
-            <label>
-                <input type="radio" name="category"
-                       value="12 ft. frontage Commercial Vendors-with product sales (no power - $355)">
-                12 ft. frontage Commercial Vendors-with product sales (no power - $355)
-            </label>
-            <label>
-                <input type="radio" name="category"
-                       value="12 ft. frontage Commercial Vendors-with product sales (110v - $370)">
-                12 ft. frontage Commercial Vendors-with product sales (110v - $370)
-            </label>
-            <label>
-                <input type="radio" name="category" value="16 ft. frontage Food Vendors (no power - $355)">
-                16 ft. frontage Food Vendors (no power - $355)
-            </label>
-            <label>
-                <input type="radio" name="category" value="16 ft. frontage Food Vendors (110v - $370)">
-                16 ft. frontage Food Vendors (110v - $370)
-            </label>
-            <label>
-                <input type="radio" name="category" value="16 ft. frontage Food Vendors (220v - $455)">
-                16 ft. frontage Food Vendors (220v - $455)
-            </label>
-            <label>
-                <input type="radio" name="category" value="16 ft. frontage Snack Vendors (no power - $275)">
-                16 ft. frontage Snack Vendors (no power - $275)
-            </label>
-            <label>
-                <input type="radio" name="category" value="16 ft. frontage Snack Vendors (110v - $290)">
-                16 ft. frontage Snack Vendors (110v - $290)
-            </label>
-            <label>
-                <input type="radio" name="category"
-                       value="12 ft. frontage Non-profit - Educational/Churches (no power - $60)">
-                12 ft. frontage Non-profit - Educational/Churches (no power - $60)
-            </label>
-            <label>
-                <input type="radio" name="category"
-                       value="12 ft. frontage Non-profit - Educational/Churches (110v - $75)">
-                12 ft. frontage Non-profit - Educational/Churches (110v - $75)
-            </label>
-            <label>
-                <input type="radio" name="category" value="12 ft. frontage Political (no power - $120)">
-                12 ft. frontage Political (no power - $120)
-            </label>
-            <label>
-                <input type="radio" name="category" value="12 ft. frontage Political (110v - $135)">
-                12 ft. frontage Political (110v - $135)
-            </label>
-        </div>
+    <div class="custom-controls-stacked">
+        <label for="booth_type" class="label"><strong>Category*</strong></label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Arts and Crafts (no power - $120)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Arts and Crafts (no power - $120)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Arts and Crafts (110v - $135)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Arts and Crafts (110v - $135)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Commercial Vendors-NO product sales (no power - $175)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Commercial Vendors-NO product sales (no power - $175)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Commercial Vendors-NO product sales (110v - $190)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Commercial Vendors-NO product sales (110v - $190)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Commercial Vendors-with product sales (no power - $355)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Commercial Vendors-with product sales (no power - $355)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Commercial Vendors-with product sales (110v - $370)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Commercial Vendors-with product sales (110v - $370)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="16 ft. frontage Food Vendors (no power - $355)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">16 ft. frontage Food Vendors (no power - $355)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="16 ft. frontage Food Vendors (110v - $370)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">16 ft. frontage Food Vendors (110v - $370)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="16 ft. frontage Food Vendors (220v - $455)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">16 ft. frontage Food Vendors (220v - $455)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="16 ft. frontage Snack Vendors (no power - $275)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">16 ft. frontage Snack Vendors (no power - $275)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="16 ft. frontage Snack Vendors (110v - $290)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">16 ft. frontage Snack Vendors (110v - $290)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Non-profit - Educational/Churches (no power - $60)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Non-profit - Educational/Churches (no power - $60)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Non-profit - Educational/Churches (110v - $75)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Non-profit - Educational/Churches (110v - $75)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Political (no power - $120)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Political (no power - $120)</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked1" name="vendortype" type="radio" value="12 ft. frontage Political (110v - $135)" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">12 ft. frontage Political (110v - $135)</span>
+        </label>
     </div>
-    <div class="row">
-        <p>For each additional foot - $26.75<br>
-            Enter number of additional frontage needed (above the standard 16 ft).</p>
-        <p>I need an additional
-            <input name="additional_feet" type="text" id="additional_feet"
-                   class="form-control col-1"
-                   value="<?php echo( ! $passCheck && $additionalFeet != '' ? $additionalFeet : '' ); ?>"
-                   placeholder="0"> feet.
+    <p>For each additional foot - $26.75<br>
+        Enter number of additional frontage needed (above the standard 16 ft).</p>
+    <p>I need an additional <input name="additional_feet" type="text" id="additional_feet"
+           class="form-control col-1"
+           value="<?php echo( ! $passCheck && $additionalFeet != '' ? $additionalFeet : '' ); ?>"
+           placeholder="0" style="display: inline-block;"> feet.
+
+    <div class="form-group">
+        <input type="text" name="secu" style="position: absolute; height: 1px; top: -50px; left: -50px; width: 1px; padding: 0; margin: 0; visibility: hidden;">
+        <button type="submit" class="btn btn-primary btn-md mb-2">Submit Application</button>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <input type="text" name="secu"
-                       style="position: absolute; height: 1px; top: -50px; left: -50px; width: 1px; padding: 0; margin: 0; visibility: hidden;">
-                <button type="submit" class="btn btn-primary btn-md mb-2">Submit Application</button>
-            </div>
-        </div>
-    </div>
+</form>
