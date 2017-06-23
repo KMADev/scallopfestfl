@@ -46,7 +46,9 @@
 <?php wp_footer(); ?>
 
 <script>
-
+    $('.carousel').carousel({
+        interval: 3500
+    });
 function stickFooter(){
 
     var body = $('body'),

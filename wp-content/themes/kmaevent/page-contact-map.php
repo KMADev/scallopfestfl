@@ -45,8 +45,8 @@ get_header();
                                         function initMap() {
 
                                             var mapOptions = {
-                                                zoom: 7,
-                                                center: new google.maps.LatLng(29.813889, -85.306594),
+                                                zoom: 8,
+                                                center: new google.maps.LatLng(29.994889, -85.306594),
                                                 disableDefaultUI: true,
                                                 zoomControl: true,
                                                 styles: [
