@@ -57,12 +57,12 @@ get_header();
                                 </table>
                                 <h3>Saturday</h3>
                                 <table>
-                                    <tr><td>Adult admissions:</td><td width="20%">$10</td></tr>
-                                    <tr><td><hr></td><td width="20%"></td></tr>
-                                    <tr><td>Child age 6-11:</td><td width="20%">$5</td></tr>
-                                    <tr><td>Child under age 6:</td><td width="20%">Free</td></tr>
-                                    <tr><td>Active Military:</td><td width="20%">Free</td></tr>
-                                    <tr><td>Parking:</td><td width="20%">Free</td></tr>
+                                    <tr><td>Adult admissions:</td><td style="width:20%">$10</td></tr>
+                                    <tr><td><hr></td><td style="width:20%"></td></tr>
+                                    <tr><td>Child age 6-11:</td><td style="width:20%">$5</td></tr>
+                                    <tr><td>Child under age 6:</td><td style="width:20%">Free</td></tr>
+                                    <tr><td>Active Military:</td><td style="width:20%">Free</td></tr>
+                                    <tr><td>Parking:</td><td style="width:20%">Free</td></tr>
                                 </table>
                             </div>
                             <a class="feat-box-link full" href="/ticket-info/" ></a>
