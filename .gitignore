@@ -1,7 +1,5 @@
 wp-config.php
-<<<<<<< HEAD
-.idea
-=======
 .idea/
 .DS_Store
->>>>>>> 4838a7942c9d553b57deab5c38a06f5f3acd7428
+wp-content/cache/
+
