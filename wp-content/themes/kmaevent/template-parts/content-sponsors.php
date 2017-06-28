@@ -7,7 +7,7 @@
         foreach ( $sponsors as $sponsor ) {
             $logo = Sponsor::getLogoUrl( $sponsor->ID );
             $url  = Sponsor::getCompanyUrl( $sponsor->ID );
-            echo '<div><a href="' . $url . '" target="_blank"><img src="' . $logo . '"></a></div>';
+            echo '<div class="col mb-2 text-center"><a href="' . $url . '" target="_blank"><img src="' . $logo . '" class="img img-fluid"></a></div>';
 
         }
         ?>
@@ -21,7 +21,7 @@
         foreach ( $sponsors as $sponsor ) {
             $logo = Sponsor::getLogoUrl( $sponsor->ID );
             $url  = Sponsor::getCompanyUrl( $sponsor->ID );
-            echo '<div class="col"><a href="' . $url . '" target="_blank"><img src="' . $logo . '" class="img img-fluid"></a></div>';
+            echo '<div class="col-md-6 mb-2 text-center"><a href="' . $url . '" target="_blank"><img src="' . $logo . '" class="img img-fluid"></a></div>';
 
         }
         ?>
@@ -35,7 +35,7 @@
         foreach ( $sponsors as $sponsor ) {
             $logo = Sponsor::getLogoUrl( $sponsor->ID );
             $url  = Sponsor::getCompanyUrl( $sponsor->ID );
-            echo '<div class="col-md-3"><a href="' . $url . '" target="_blank"><img src="' . $logo . '" class="img img-fluid"></a></div>';
+            echo '<div class="col-md-3 mb-2 text-center"><a href="' . $url . '" target="_blank"><img src="' . $logo . '" class="img img-fluid"></a></div>';
 
         }
         ?>
@@ -49,7 +49,7 @@
         foreach ( $sponsors as $sponsor ) {
             $logo = Sponsor::getLogoUrl( $sponsor->ID );
             $url  = Sponsor::getCompanyUrl( $sponsor->ID );
-            echo '<div class="col-md-3"><a href="' . $url . '" target="_blank"><img src="' . $logo . '" class="img img-fluid"></a></div>';
+            echo '<div class="col-md-3 mb-2 text-center"><a href="' . $url . '" target="_blank"><img src="' . $logo . '" class="img img-fluid"></a></div>';
 
         }
         ?>
@@ -63,7 +63,7 @@
         foreach ( $sponsors as $sponsor ) {
             $logo = Sponsor::getLogoUrl( $sponsor->ID );
             $url  = Sponsor::getCompanyUrl( $sponsor->ID );
-            echo '<div class="col-md-3"><a href="' . $url . '" target="_blank"><img src="' . $logo . '" class="img img-fluid"></a></div>';
+            echo '<div class="col-md-3 mb-2 text-center"><a href="' . $url . '" target="_blank"><img src="' . $logo . '" class="img img-fluid"></a></div>';
 
         }
         ?>

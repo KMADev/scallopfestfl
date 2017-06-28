@@ -1,7 +1,7 @@
 <?php
 
 $mlsLead = new kmaLeads();
-$ADMIN_EMAIL = 'bryan@kerigan.com';
+$ADMIN_EMAIL = 'info@scallopfestfl.org';
 $DOMAIN_NAME = 'scallopfestfl.org';
 
 //DEFAULT FORM VARS

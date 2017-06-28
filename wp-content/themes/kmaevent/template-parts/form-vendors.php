@@ -1,7 +1,7 @@
 <?php
 
 $mlsLead     = new kmaLeads();
-$ADMIN_EMAIL = 'bryan@kerigan.com';
+$ADMIN_EMAIL = 'info@scallopfestfl.org';
 $DOMAIN_NAME = 'scallopfestfl.org';
 
 //DEFAULT FORM VARS
@@ -35,6 +35,7 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
 	$contactperson  = ( isset( $_POST['contact_person'] ) ? $_POST['contact_person'] : $contactperson );
 	$youremail      = ( isset( $_POST['your_email'] ) ? $_POST['your_email'] : $youremail );
 	$phone          = ( isset( $_POST['phone'] ) ? $_POST['phone'] : $phone );
+	$cellphone      = ( isset( $_POST['cellphone'] ) ? $_POST['cellphone'] : $phone );
 	$address        = ( isset( $_POST['address'] ) ? $_POST['address'] : $address );
 	$address_2      = ( isset( $_POST['address_2'] ) ? $_POST['address_2'] : $address_2 );
 	$city           = ( isset( $_POST['city'] ) ? $_POST['city'] : $city );
@@ -85,8 +86,8 @@ if ( $formSubmitted ) { //FORM WAS SUBMITTED
 		'Business Name'     => $yourname,
 		'Contact Person'    => $contactperson,
 		'Email Address'     => $youremail,
-		'Phone Number'      => $cellphone,
-		'Cell Phone Number' => $phone,
+		'Phone Number'      => $phone,
+		'Cell Phone Number' => $cellphone,
 		'Address'           => $address . ' ' . $address_2 . '<br>' . $city . ' ' . $state . ', ' . $zip,
 		'Website'           => $website,
 		'Booth Type'        => $boothtype,
