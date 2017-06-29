@@ -2,6 +2,12 @@
 
 class Sponsor {
 
+	/**
+	 * Returns array sponsors based on sponsorship level
+	 * @param $level
+	 *
+	 * @return array
+	 */
 	public static function getSponsorByLevel( $level ) {
 		$request = array(
 			'post_type'         => 'sponsor',
@@ -18,11 +24,23 @@ class Sponsor {
 		return $allSponsors;
 	}
 
+	/**
+	 * Fetches url for logo based on sponsor ID
+	 * @param $sponsorId
+	 *
+	 * @return mixed
+	 */
 	public static function getLogoUrl( $sponsorId ) {
 
 		return get_post_meta($sponsorId, 'sponsor_information_logo', true);
 	}
 
+	/**
+	 * Fetches company url based on sponsor ID
+	 * @param $sponsorId
+	 *
+	 * @return mixed
+	 */
 	public static function getCompanyUrl( $sponsorId ) {
 
 		return get_post_meta($sponsorId, 'sponsor_information_company_website', true);

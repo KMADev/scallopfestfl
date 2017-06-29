@@ -165,7 +165,7 @@ $parking_fee                      = get_field( 'parking_fee', 6 );
                         <div class="vertical-bar"></div>
                     </div>
                     <div class="col-md-5">
-                        <h3>View photos.</h3>
+                        <h3>View photos</h3>
 						<?php echo wdi_feed( array( 'id' => '1' ) ); ?>
                         <p class="hash"><a href="https://www.instagram.com/flscallopfestival/" target="_blank">#flscallopfestival</a>
                         </p>
