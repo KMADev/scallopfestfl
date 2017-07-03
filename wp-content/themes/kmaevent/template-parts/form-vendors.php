@@ -1,6 +1,6 @@
 <?php
 $mlsLead     = new kmaLeads();
-$ADMIN_EMAIL = 'info@scallopfestfl.org';
+$ADMIN_EMAIL = 'vendors@scallopfestfl.org';
 $DOMAIN_NAME = 'scallopfestfl.org';
 
 //DEFAULT FORM VARS
