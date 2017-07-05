@@ -58,42 +58,43 @@ $parking_fee                      = get_field( 'parking_fee', 6 );
                             <div class="feat-box-roll">
                                 <div class="valigner"></div>
                                 <div class="feat-box-roll-content text-left">
-                                    <h3><?php echo $first_day; ?></h3>
-                                    <table>
-                                        <tr>
-                                            <td>Adult admissions:</td>
-                                            <td width="20%">$<?php echo $first_day_adult_admission_price; ?></td>
-                                        </tr>
-                                    </table>
-                                    <h3><?php echo $second_day; ?></h3>
-                                    <table>
-                                        <tr>
-                                            <td>Adult admissions:</td>
-                                            <td style="width:20%">$<?php echo $second_day_adult_admission_price; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <hr>
-                                            </td>
-                                            <td style="width:20%"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Child age 6-11:</td>
-                                            <td style="width:20%">$<?php echo $child_over_6_price; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Child under age 6:</td>
-                                            <td style="width:20%"><?php echo $child_under_6_price; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Active Military:</td>
-                                            <td style="width:20%"><?php echo $active_military_price; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Parking:</td>
-                                            <td style="width:20%"><?php echo $parking_fee; ?></td>
-                                        </tr>
-                                    </table>
+	                                <?php echo apply_filters('the_content', $post->pricing_feature_box_html); ?>
+<!--                                    <h3>--><?php //echo $first_day; ?><!--</h3>-->
+<!--                                    <table>-->
+<!--                                        <tr>-->
+<!--                                            <td>Adult admissions:</td>-->
+<!--                                            <td width="20%">$--><?php //echo $first_day_adult_admission_price; ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                    </table>-->
+<!--                                    <h3>--><?php //echo $second_day; ?><!--</h3>-->
+<!--                                    <table>-->
+<!--                                        <tr>-->
+<!--                                            <td>Adult admissions:</td>-->
+<!--                                            <td style="width:20%">$--><?php //echo $second_day_adult_admission_price; ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <hr>-->
+<!--                                            </td>-->
+<!--                                            <td style="width:20%"></td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>Child age 6-11:</td>-->
+<!--                                            <td style="width:20%">$--><?php //echo $child_over_6_price; ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>Child under age 6:</td>-->
+<!--                                            <td style="width:20%">--><?php //echo $child_under_6_price; ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>Active Military:</td>-->
+<!--                                            <td style="width:20%">--><?php //echo $active_military_price; ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>Parking:</td>-->
+<!--                                            <td style="width:20%">--><?php //echo $parking_fee; ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                    </table>-->
                                 </div>
                                 <a class="feat-box-link full" href="/ticket-info/"></a>
                             </div>
@@ -108,11 +109,12 @@ $parking_fee                      = get_field( 'parking_fee', 6 );
                             <div class="feat-box-roll">
                                 <div class="valigner"></div>
                                 <div class="feat-box-roll-content">
-                                    <h3><a class="feat-box-link" href="/entertainment/#music">Music Lineup</a></h3>
-                                    <hr>
-                                    <h3><a class="feat-box-link" href="/entertainment/#kidszone">Kids Zone</a></h3>
-                                    <hr>
-                                    <h3><a class="feat-box-link" href="/entertainment/#vendors">Vendors</a></h3>
+	                                <?php echo apply_filters('the_content', $post->entertainment_feature_box_html); ?>
+<!--                                    <h3><a class="feat-box-link" href="/entertainment/#music">Music Lineup</a></h3>-->
+<!--                                    <hr>-->
+<!--                                    <h3><a class="feat-box-link" href="/entertainment/#kidszone">Kids Zone</a></h3>-->
+<!--                                    <hr>-->
+<!--                                    <h3><a class="feat-box-link" href="/entertainment/#vendors">Vendors</a></h3>-->
                                 </div>
                             </div>
                         </div>
@@ -126,9 +128,10 @@ $parking_fee                      = get_field( 'parking_fee', 6 );
                             <div class="feat-box-roll">
                                 <div class="valigner"></div>
                                 <div class="feat-box-roll-content">
-                                    <h3><a class="feat-box-link" href="/contact-map/">Location</a></h3>
-                                    <hr>
-                                    <h3><a class="feat-box-link" href="/lodging/">Lodging</a></h3>
+	                                <?php echo apply_filters('the_content', $post->area_feature_box_html); ?>
+<!--                                    <h3><a class="feat-box-link" href="/contact-map/">Location</a></h3>-->
+<!--                                    <hr>-->
+<!--                                    <h3><a class="feat-box-link" href="/lodging/">Lodging</a></h3>-->
                                 </div>
                             </div>
                         </div>

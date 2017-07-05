@@ -142,6 +142,31 @@ function kmaevent_setup() {
 
 	}
 
+	if( is_admin() && $post_id == 6){
+
+		$page->add_meta_box(
+			'Pricing Feature Box',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
+		$page->add_meta_box(
+			'Entertainment Feature Box',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
+		$page->add_meta_box(
+			'Area Feature Box',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
+	}
+
 }
 endif;
 add_action( 'after_setup_theme', 'kmaevent_setup' );
