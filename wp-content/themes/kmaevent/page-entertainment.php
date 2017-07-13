@@ -59,6 +59,16 @@ get_header();
                 </div>
             </div>
         </div>
+        <div class="black-texture">
+            <div class="activities-section">
+                <a class="pad-anchor" id="activities"></a>
+                <div class="container">
+                    <div class="entry-content text-center">
+					    <?php echo apply_filters('the_content', $post->activities_html); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <?php

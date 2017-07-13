@@ -41,5 +41,8 @@
 //			) );
 		?>
 	</div><!-- .entry-content -->
+    <?php if ( !is_single() ) : ?>
+        <hr>
+    <?php endif; ?>
 
 </article><!-- #post-## -->

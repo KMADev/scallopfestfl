@@ -330,6 +330,7 @@ ul#mini-menu li.menu-item a.nav-link {
     text-align: center;
 }
 
+.page-id-8 .activities-section .entry-content h2,
 .orange-section .entry-content h2,
 .blue-section .entry-content h2 {
     color: #FFF;
@@ -765,7 +766,8 @@ header.entry-header h1 {
 }
 
 .kids-section,
-.vendors-section {
+.vendors-section,
+.activities-section {
     padding:2rem 0
 }
 

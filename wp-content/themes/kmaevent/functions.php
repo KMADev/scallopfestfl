@@ -118,6 +118,13 @@ function kmaevent_setup() {
 			)
 		);
 
+		$page->add_meta_box(
+			'Activities',
+			array(
+				'HTML' 			=> 'wysiwyg'
+			)
+		);
+
 	}
 
 	if( is_admin() && $post_id == 206){
